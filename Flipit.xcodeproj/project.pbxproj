@@ -1,0 +1,726 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CC15ACDC27AE21C800ECF058 /* FlipitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC15ACDB27AE21C800ECF058 /* FlipitApp.swift */; };
+		CC15ACDE27AE21C800ECF058 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC15ACDD27AE21C800ECF058 /* ContentView.swift */; };
+		CC15ACE027AE21C900ECF058 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC15ACDF27AE21C900ECF058 /* Assets.xcassets */; };
+		CC15ACE327AE21C900ECF058 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC15ACE227AE21C900ECF058 /* Preview Assets.xcassets */; };
+		CC15ACE527AE21C900ECF058 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC15ACE427AE21C900ECF058 /* Persistence.swift */; };
+		CC15ACE827AE21C900ECF058 /* Flipit.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CC15ACE627AE21C900ECF058 /* Flipit.xcdatamodeld */; };
+		CC15ACF227AE21C900ECF058 /* FlipitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC15ACF127AE21C900ECF058 /* FlipitTests.swift */; };
+		CC15ACFC27AE21CA00ECF058 /* FlipitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC15ACFB27AE21CA00ECF058 /* FlipitUITests.swift */; };
+		CC15ACFE27AE21CA00ECF058 /* FlipitUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC15ACFD27AE21CA00ECF058 /* FlipitUITestsLaunchTests.swift */; };
+		CC15AD0C27AE233E00ECF058 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = CC15AD0B27AE233E00ECF058 /* Realm */; };
+		CC15AD0E27AE233E00ECF058 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CC15AD0D27AE233E00ECF058 /* RealmSwift */; };
+		CC15AD1027AE241C00ECF058 /* WordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC15AD0F27AE241C00ECF058 /* WordModel.swift */; };
+		CC15AD1327AE25D600ECF058 /* WordGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC15AD1227AE25D600ECF058 /* WordGroupModel.swift */; };
+		CC15AD1627AE28C900ECF058 /* WordGroupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC15AD1527AE28C900ECF058 /* WordGroupListView.swift */; };
+		CC15AD1A27AE39A500ECF058 /* WordGroupListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC15AD1927AE39A500ECF058 /* WordGroupListViewModel.swift */; };
+		CC15AD1C27AE416E00ECF058 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC15AD1B27AE416E00ECF058 /* MainView.swift */; };
+		CC15AD2127AE421C00ECF058 /* Color+CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC15AD2027AE421C00ECF058 /* Color+CustomColors.swift */; };
+		CC15AD2727AE4D5100ECF058 /* WordListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC15AD2627AE4D5100ECF058 /* WordListView.swift */; };
+		CC15AD2927AE4D5F00ECF058 /* WordListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC15AD2827AE4D5F00ECF058 /* WordListViewModel.swift */; };
+		CC15AD2B27AE696100ECF058 /* WordListView+FlippableWordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC15AD2A27AE696100ECF058 /* WordListView+FlippableWordCell.swift */; };
+		CC15AD2D27AE69B800ECF058 /* WordListView+WordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC15AD2C27AE69B800ECF058 /* WordListView+WordList.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CC15ACEE27AE21C900ECF058 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CC15ACD027AE21C800ECF058 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CC15ACD727AE21C800ECF058;
+			remoteInfo = Flipit;
+		};
+		CC15ACF827AE21C900ECF058 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CC15ACD027AE21C800ECF058 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CC15ACD727AE21C800ECF058;
+			remoteInfo = Flipit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CC15ACD827AE21C800ECF058 /* Flipit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flipit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC15ACDB27AE21C800ECF058 /* FlipitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipitApp.swift; sourceTree = "<group>"; };
+		CC15ACDD27AE21C800ECF058 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CC15ACDF27AE21C900ECF058 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CC15ACE227AE21C900ECF058 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CC15ACE427AE21C900ECF058 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		CC15ACE727AE21C900ECF058 /* Flipit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Flipit.xcdatamodel; sourceTree = "<group>"; };
+		CC15ACED27AE21C900ECF058 /* FlipitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlipitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC15ACF127AE21C900ECF058 /* FlipitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipitTests.swift; sourceTree = "<group>"; };
+		CC15ACF727AE21C900ECF058 /* FlipitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlipitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC15ACFB27AE21CA00ECF058 /* FlipitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipitUITests.swift; sourceTree = "<group>"; };
+		CC15ACFD27AE21CA00ECF058 /* FlipitUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipitUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CC15AD0F27AE241C00ECF058 /* WordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordModel.swift; sourceTree = "<group>"; };
+		CC15AD1227AE25D600ECF058 /* WordGroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGroupModel.swift; sourceTree = "<group>"; };
+		CC15AD1527AE28C900ECF058 /* WordGroupListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGroupListView.swift; sourceTree = "<group>"; };
+		CC15AD1927AE39A500ECF058 /* WordGroupListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordGroupListViewModel.swift; sourceTree = "<group>"; };
+		CC15AD1B27AE416E00ECF058 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		CC15AD2027AE421C00ECF058 /* Color+CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+CustomColors.swift"; sourceTree = "<group>"; };
+		CC15AD2627AE4D5100ECF058 /* WordListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordListView.swift; sourceTree = "<group>"; };
+		CC15AD2827AE4D5F00ECF058 /* WordListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordListViewModel.swift; sourceTree = "<group>"; };
+		CC15AD2A27AE696100ECF058 /* WordListView+FlippableWordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WordListView+FlippableWordCell.swift"; sourceTree = "<group>"; };
+		CC15AD2C27AE69B800ECF058 /* WordListView+WordList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WordListView+WordList.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CC15ACD527AE21C800ECF058 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC15AD0E27AE233E00ECF058 /* RealmSwift in Frameworks */,
+				CC15AD0C27AE233E00ECF058 /* Realm in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC15ACEA27AE21C900ECF058 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC15ACF427AE21C900ECF058 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CC15ACCF27AE21C800ECF058 = {
+			isa = PBXGroup;
+			children = (
+				CC15ACDA27AE21C800ECF058 /* Flipit */,
+				CC15ACF027AE21C900ECF058 /* FlipitTests */,
+				CC15ACFA27AE21CA00ECF058 /* FlipitUITests */,
+				CC15ACD927AE21C800ECF058 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CC15ACD927AE21C800ECF058 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CC15ACD827AE21C800ECF058 /* Flipit.app */,
+				CC15ACED27AE21C900ECF058 /* FlipitTests.xctest */,
+				CC15ACF727AE21C900ECF058 /* FlipitUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CC15ACDA27AE21C800ECF058 /* Flipit */ = {
+			isa = PBXGroup;
+			children = (
+				CC15AD2227AE42A700ECF058 /* MainFrame */,
+				CC15AD1F27AE41EC00ECF058 /* Extensions */,
+				CC15AD1427AE28A600ECF058 /* WordGroupList */,
+				CC15AD2527AE4D3100ECF058 /* WordListView */,
+				CC15AD1127AE25BF00ECF058 /* Models */,
+				CC15ACDB27AE21C800ECF058 /* FlipitApp.swift */,
+				CC15ACDD27AE21C800ECF058 /* ContentView.swift */,
+				CC15ACDF27AE21C900ECF058 /* Assets.xcassets */,
+				CC15ACE427AE21C900ECF058 /* Persistence.swift */,
+				CC15ACE627AE21C900ECF058 /* Flipit.xcdatamodeld */,
+				CC15ACE127AE21C900ECF058 /* Preview Content */,
+			);
+			path = Flipit;
+			sourceTree = "<group>";
+		};
+		CC15ACE127AE21C900ECF058 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				CC15ACE227AE21C900ECF058 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CC15ACF027AE21C900ECF058 /* FlipitTests */ = {
+			isa = PBXGroup;
+			children = (
+				CC15ACF127AE21C900ECF058 /* FlipitTests.swift */,
+			);
+			path = FlipitTests;
+			sourceTree = "<group>";
+		};
+		CC15ACFA27AE21CA00ECF058 /* FlipitUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CC15ACFB27AE21CA00ECF058 /* FlipitUITests.swift */,
+				CC15ACFD27AE21CA00ECF058 /* FlipitUITestsLaunchTests.swift */,
+			);
+			path = FlipitUITests;
+			sourceTree = "<group>";
+		};
+		CC15AD1127AE25BF00ECF058 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CC15AD0F27AE241C00ECF058 /* WordModel.swift */,
+				CC15AD1227AE25D600ECF058 /* WordGroupModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CC15AD1427AE28A600ECF058 /* WordGroupList */ = {
+			isa = PBXGroup;
+			children = (
+				CC15AD1527AE28C900ECF058 /* WordGroupListView.swift */,
+				CC15AD1927AE39A500ECF058 /* WordGroupListViewModel.swift */,
+			);
+			path = WordGroupList;
+			sourceTree = "<group>";
+		};
+		CC15AD1F27AE41EC00ECF058 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CC15AD2027AE421C00ECF058 /* Color+CustomColors.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CC15AD2227AE42A700ECF058 /* MainFrame */ = {
+			isa = PBXGroup;
+			children = (
+				CC15AD1B27AE416E00ECF058 /* MainView.swift */,
+			);
+			path = MainFrame;
+			sourceTree = "<group>";
+		};
+		CC15AD2527AE4D3100ECF058 /* WordListView */ = {
+			isa = PBXGroup;
+			children = (
+				CC15AD2627AE4D5100ECF058 /* WordListView.swift */,
+				CC15AD2827AE4D5F00ECF058 /* WordListViewModel.swift */,
+				CC15AD2A27AE696100ECF058 /* WordListView+FlippableWordCell.swift */,
+				CC15AD2C27AE69B800ECF058 /* WordListView+WordList.swift */,
+			);
+			path = WordListView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CC15ACD727AE21C800ECF058 /* Flipit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CC15AD0127AE21CA00ECF058 /* Build configuration list for PBXNativeTarget "Flipit" */;
+			buildPhases = (
+				CC15ACD427AE21C800ECF058 /* Sources */,
+				CC15ACD527AE21C800ECF058 /* Frameworks */,
+				CC15ACD627AE21C800ECF058 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Flipit;
+			packageProductDependencies = (
+				CC15AD0B27AE233E00ECF058 /* Realm */,
+				CC15AD0D27AE233E00ECF058 /* RealmSwift */,
+			);
+			productName = Flipit;
+			productReference = CC15ACD827AE21C800ECF058 /* Flipit.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CC15ACEC27AE21C900ECF058 /* FlipitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CC15AD0427AE21CA00ECF058 /* Build configuration list for PBXNativeTarget "FlipitTests" */;
+			buildPhases = (
+				CC15ACE927AE21C900ECF058 /* Sources */,
+				CC15ACEA27AE21C900ECF058 /* Frameworks */,
+				CC15ACEB27AE21C900ECF058 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CC15ACEF27AE21C900ECF058 /* PBXTargetDependency */,
+			);
+			name = FlipitTests;
+			productName = FlipitTests;
+			productReference = CC15ACED27AE21C900ECF058 /* FlipitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CC15ACF627AE21C900ECF058 /* FlipitUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CC15AD0727AE21CA00ECF058 /* Build configuration list for PBXNativeTarget "FlipitUITests" */;
+			buildPhases = (
+				CC15ACF327AE21C900ECF058 /* Sources */,
+				CC15ACF427AE21C900ECF058 /* Frameworks */,
+				CC15ACF527AE21C900ECF058 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CC15ACF927AE21C900ECF058 /* PBXTargetDependency */,
+			);
+			name = FlipitUITests;
+			productName = FlipitUITests;
+			productReference = CC15ACF727AE21C900ECF058 /* FlipitUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CC15ACD027AE21C800ECF058 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					CC15ACD727AE21C800ECF058 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					CC15ACEC27AE21C900ECF058 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = CC15ACD727AE21C800ECF058;
+					};
+					CC15ACF627AE21C900ECF058 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = CC15ACD727AE21C800ECF058;
+					};
+				};
+			};
+			buildConfigurationList = CC15ACD327AE21C800ECF058 /* Build configuration list for PBXProject "Flipit" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CC15ACCF27AE21C800ECF058;
+			packageReferences = (
+				CC15AD0A27AE233E00ECF058 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
+			productRefGroup = CC15ACD927AE21C800ECF058 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CC15ACD727AE21C800ECF058 /* Flipit */,
+				CC15ACEC27AE21C900ECF058 /* FlipitTests */,
+				CC15ACF627AE21C900ECF058 /* FlipitUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CC15ACD627AE21C800ECF058 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC15ACE327AE21C900ECF058 /* Preview Assets.xcassets in Resources */,
+				CC15ACE027AE21C900ECF058 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC15ACEB27AE21C900ECF058 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC15ACF527AE21C900ECF058 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CC15ACD427AE21C800ECF058 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC15ACE527AE21C900ECF058 /* Persistence.swift in Sources */,
+				CC15AD1C27AE416E00ECF058 /* MainView.swift in Sources */,
+				CC15ACDE27AE21C800ECF058 /* ContentView.swift in Sources */,
+				CC15ACDC27AE21C800ECF058 /* FlipitApp.swift in Sources */,
+				CC15AD2D27AE69B800ECF058 /* WordListView+WordList.swift in Sources */,
+				CC15AD2727AE4D5100ECF058 /* WordListView.swift in Sources */,
+				CC15AD1A27AE39A500ECF058 /* WordGroupListViewModel.swift in Sources */,
+				CC15AD2B27AE696100ECF058 /* WordListView+FlippableWordCell.swift in Sources */,
+				CC15AD1627AE28C900ECF058 /* WordGroupListView.swift in Sources */,
+				CC15ACE827AE21C900ECF058 /* Flipit.xcdatamodeld in Sources */,
+				CC15AD2927AE4D5F00ECF058 /* WordListViewModel.swift in Sources */,
+				CC15AD1027AE241C00ECF058 /* WordModel.swift in Sources */,
+				CC15AD2127AE421C00ECF058 /* Color+CustomColors.swift in Sources */,
+				CC15AD1327AE25D600ECF058 /* WordGroupModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC15ACE927AE21C900ECF058 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC15ACF227AE21C900ECF058 /* FlipitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC15ACF327AE21C900ECF058 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CC15ACFE27AE21CA00ECF058 /* FlipitUITestsLaunchTests.swift in Sources */,
+				CC15ACFC27AE21CA00ECF058 /* FlipitUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CC15ACEF27AE21C900ECF058 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CC15ACD727AE21C800ECF058 /* Flipit */;
+			targetProxy = CC15ACEE27AE21C900ECF058 /* PBXContainerItemProxy */;
+		};
+		CC15ACF927AE21C900ECF058 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CC15ACD727AE21C800ECF058 /* Flipit */;
+			targetProxy = CC15ACF827AE21C900ECF058 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		CC15ACFF27AE21CA00ECF058 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CC15AD0027AE21CA00ECF058 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CC15AD0227AE21CA00ECF058 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Flipit/Preview Content\"";
+				DEVELOPMENT_TEAM = 86F3BYCLAK;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jaemjung.Flipit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CC15AD0327AE21CA00ECF058 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Flipit/Preview Content\"";
+				DEVELOPMENT_TEAM = 86F3BYCLAK;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jaemjung.Flipit;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		CC15AD0527AE21CA00ECF058 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 86F3BYCLAK;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jaemjung.FlipitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flipit.app/Flipit";
+			};
+			name = Debug;
+		};
+		CC15AD0627AE21CA00ECF058 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 86F3BYCLAK;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jaemjung.FlipitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flipit.app/Flipit";
+			};
+			name = Release;
+		};
+		CC15AD0827AE21CA00ECF058 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 86F3BYCLAK;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jaemjung.FlipitUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Flipit;
+			};
+			name = Debug;
+		};
+		CC15AD0927AE21CA00ECF058 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 86F3BYCLAK;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = jaemjung.FlipitUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Flipit;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CC15ACD327AE21C800ECF058 /* Build configuration list for PBXProject "Flipit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC15ACFF27AE21CA00ECF058 /* Debug */,
+				CC15AD0027AE21CA00ECF058 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CC15AD0127AE21CA00ECF058 /* Build configuration list for PBXNativeTarget "Flipit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC15AD0227AE21CA00ECF058 /* Debug */,
+				CC15AD0327AE21CA00ECF058 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CC15AD0427AE21CA00ECF058 /* Build configuration list for PBXNativeTarget "FlipitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC15AD0527AE21CA00ECF058 /* Debug */,
+				CC15AD0627AE21CA00ECF058 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CC15AD0727AE21CA00ECF058 /* Build configuration list for PBXNativeTarget "FlipitUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CC15AD0827AE21CA00ECF058 /* Debug */,
+				CC15AD0927AE21CA00ECF058 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CC15AD0A27AE233E00ECF058 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CC15AD0B27AE233E00ECF058 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CC15AD0A27AE233E00ECF058 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		CC15AD0D27AE233E00ECF058 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CC15AD0A27AE233E00ECF058 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		CC15ACE627AE21C900ECF058 /* Flipit.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CC15ACE727AE21C900ECF058 /* Flipit.xcdatamodel */,
+			);
+			currentVersion = CC15ACE727AE21C900ECF058 /* Flipit.xcdatamodel */;
+			path = Flipit.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = CC15ACD027AE21C800ECF058 /* Project object */;
+}
