@@ -15,6 +15,9 @@ struct FlippableWordCell<Front, Back>: View where Front: View, Back: View {
     @State var isFliped: Bool = false
     @State var cardRotation = 0.0
     @State var contentRotation = 0.0
+    @State var tapped: Bool = false
+    
+    @State var lastTappedHash = Date().hashValue
     
     init(@ViewBuilder front: @escaping () -> Front, @ViewBuilder back: @escaping () -> Back) {
         self.front = front
@@ -33,7 +36,13 @@ struct FlippableWordCell<Front, Back>: View where Front: View, Back: View {
         .frame(maxHeight: .infinity)
         .frame(maxWidth: .infinity)
         .onTapGesture {
-            flipContent()
+            if (tapped == false) {
+                flipContent()
+                tapped = true
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                self.tapped = false
+            }
         }
         .rotation3DEffect(.degrees(cardRotation), axis: (x: 1, y: 0, z: 0))
     }
@@ -47,5 +56,24 @@ struct FlippableWordCell<Front, Back>: View where Front: View, Back: View {
             contentRotation += 180
 
         }
+        let hash = Date().hashValue
+        self.lastTappedHash = hash
+        turnBackAfterThreeSec(hashValue: hash)
     }
+    
+    func turnBackAfterThreeSec(hashValue: Int) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3 ) {
+            if (isFliped == true && hashValue == lastTappedHash) {
+                withAnimation(Animation.linear(duration: 0.35)) {
+                    cardRotation += 180
+                    isFliped.toggle()
+                }
+                withAnimation(Animation.linear(duration: 0.001).delay(0.175)) {
+                    contentRotation += 180
+
+                }
+            }
+        }
+    }
+    
 }

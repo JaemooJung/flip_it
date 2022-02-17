@@ -7,6 +7,7 @@
 
 import Foundation
 import RealmSwift
+import SwiftUI
 
 class WordGroupListViewModel: ObservableObject {
     
@@ -16,6 +17,10 @@ class WordGroupListViewModel: ObservableObject {
     init() {
         openRealm()
         fetchWordGroup()
+    }
+    
+    var memorizedWordCount: Int {
+        return localRealm?.objects(Word.self).where({$0.isMemorized == true}).count ?? 0
     }
     
     func openRealm() {
@@ -47,9 +52,17 @@ class WordGroupListViewModel: ObservableObject {
                 let wordGroupToDelete = localRealm.objects(WordGroup.self).filter(NSPredicate(format: "_id == %@", id))
                 guard !wordGroupToDelete.isEmpty else { return }
                 try localRealm.write({
+                    if let words = wordGroupToDelete.first?.words {
+                        for word in words {
+                            if word.isMemorized == false {
+                                localRealm.delete(word)
+                            }
+                        }
+                    }
                     localRealm.delete(wordGroupToDelete)
                     fetchWordGroup()
                 })
+                UserDefaults.standard.set(nil, forKey: keyForWordGroupID)
             } catch {
                 print("Error Deleting WordGroup\(id) from Realm : \(error.localizedDescription)")
             }
@@ -63,4 +76,5 @@ class WordGroupListViewModel: ObservableObject {
             self.wordGroups = Array(fetchedResult)
         }
     }
+    
 }

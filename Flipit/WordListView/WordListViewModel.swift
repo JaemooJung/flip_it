@@ -12,10 +12,10 @@ class WordListViewModel: ObservableObject {
     
     private(set) var localRealm: Realm?
     @Published private(set) var words: [Word] = []
-    let wordGroupId: ObjectId
+    let wordGroupId: String
     var fetchedWordGroup: WordGroup?
     
-    init(wordGroupId: ObjectId) {
+    init(wordGroupId: String) {
         self.wordGroupId = wordGroupId
         openRealm()
         fetchWords()
@@ -38,7 +38,7 @@ class WordListViewModel: ObservableObject {
                     let wordToaAdd = Word()
                     wordToaAdd.wordString = newWord
                     if (meaning.isEmpty) {
-                        wordToaAdd.meaningString = " "
+                        wordToaAdd.meaningString = "     "
                     } else {
                         wordToaAdd.meaningString = meaning
                     }
@@ -69,8 +69,9 @@ class WordListViewModel: ObservableObject {
     
     func fetchWords() {
         guard let localRealm = localRealm else { return }
+        let convertedID = try! ObjectId(string: self.wordGroupId)
         guard let fetchedResult = localRealm.objects(WordGroup.self)
-                .filter(NSPredicate(format: "_id == %@", self.wordGroupId)).first else { return }
+                .filter(NSPredicate(format: "_id == %@", convertedID)).first else { return }
         self.fetchedWordGroup = fetchedResult
         let wordsToFetch = fetchedWordGroup!.words.where({$0.isMemorized == false}).sorted(byKeyPath: "timestamp", ascending: false)
         self.words = Array(wordsToFetch)

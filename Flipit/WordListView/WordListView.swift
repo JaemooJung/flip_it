@@ -21,24 +21,37 @@ struct WordListView: View {
     var body: some View {
             VStack(spacing: 0) {
                 // 헤더 부분
-                VStack {
-                    Text("WordGroupName")
-                        .foregroundColor(Color.f_orange)
-                        .padding(25)
-                        .font(.custom("Montserrat-Regular", size: 28))
-                        .onTapGesture {
-                            withAnimation(.default) {
+                VStack(spacing: 0) {
+                    
+                    HStack {
+                        Button {
+                            withAnimation(.easeInOut(duration: 0.6).delay(0.2)) {
                                 self.isWordGroupListViewPresented.toggle()
                             }
+                        } label: {
+                            Text(Image(systemName: "line.3.horizontal"))
+                                .font(.title)
+                                .fontWeight(.light)
+                                .foregroundColor(Color.f_orange)
                         }
+                        Spacer()
+                    }.padding([.top, .leading, .trailing])
+                        .padding(.bottom, 12)
+                    
+                    HStack {
+                        Text(wordListViewModel.fetchedWordGroup?.groupName ?? "NoWordGroupName")
+                            .foregroundColor(Color.f_orange)
+                            .font(.custom("Montserrat-Light", size: 30))
+                        Spacer()
+                    }.padding([.bottom, .leading, .trailing])
+                    
+                    devider(length: 100)
+                    
                 }
-                // 구분선
-                Rectangle()
-                    .fill(Color.f_orange)
-                    .frame(width: nil, height: 2)
+
                 // 단어 리스트
                 wordList()
-                    .padding([.bottom, .leading, .trailing], 2)
+                    .padding([.bottom, .leading, .trailing], primaryBorderWidth)
                     .environmentObject(self.wordListViewModel)
 
             }
@@ -50,3 +63,5 @@ struct WordListView: View {
 //        WordListView()
 //    }
 //}
+
+

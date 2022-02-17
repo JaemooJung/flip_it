@@ -101,7 +101,8 @@ struct wordList: View {
                         .onSubmit {
                                 withAnimation(.default) {
                                     if (!newWord.isEmpty) {
-                                        wordListViewModel.addNewWord(newWord: newWord, meaning: newWordMeaning)
+                                        wordListViewModel.addNewWord(newWord: newWord,
+                                                                     meaning: newWordMeaning)
                                     }
                                     newWord = ""
                                     newWordMeaning = ""
@@ -178,8 +179,9 @@ struct wordList: View {
                                 VStack(spacing: 0) {
                                     HStack {
                                         Spacer()
-                                        Text("Pull to add a new word")
+                                        Text("당겨서 단어 추가하기")
                                             .padding()
+                                            .font(.custom("Montserrat-Light", size: 16))
                                             .foregroundColor(.f_orange)
                                         Spacer()
                                     }
@@ -203,7 +205,6 @@ struct wordList: View {
                 .listStyle(.plain)
                 .onTapGesture {
                     if (self.isAddingNewWord == true) {
-                        print("list Tapped")
                         withAnimation(.default) {
                             self.isAddingNewWord.toggle()
                         }
@@ -227,6 +228,14 @@ struct wordList: View {
     
     func customPullAction(reader: GeometryProxy) {
         DispatchQueue.main.async {
+            
+            print(reader.frame(in: .global).minY)
+            print("startingOffset: \(startingOffsetY)")
+            print(isAddingNewWord)
+            print(isListPulled)
+            print(isListReleased)
+            print(isAddingNewWordViewClosed)
+            
             if (self.listGeoReaderHeight == 0) {
                 listGeoReaderHeight = reader.frame(in: .global).height
             }
@@ -268,6 +277,7 @@ struct wordList: View {
             } else {
                 invalid = true
             }
+            
         }
 
     }
