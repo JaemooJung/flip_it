@@ -72,7 +72,7 @@ class WordGroupListViewModel: ObservableObject {
     
     func fetchWordGroup() {
         if let localRealm = localRealm {
-            let fetchedResult = localRealm.objects(WordGroup.self).sorted(byKeyPath: "timestamp", ascending: true)
+            let fetchedResult = localRealm.objects(WordGroup.self).sorted(byKeyPath: "timestamp", ascending: false)
             self.wordGroups = Array(fetchedResult)
         }
     }
