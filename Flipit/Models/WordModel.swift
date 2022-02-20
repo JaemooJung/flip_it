@@ -8,7 +8,8 @@
 import Foundation
 import RealmSwift
 
-class Word: Object, ObjectKeyIdentifiable {
+final class Word: Object, ObjectKeyIdentifiable {
+    
     @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var wordString: String = "NoWordString"
     @Persisted var meaningString: String = "NoMeaningString"
@@ -22,4 +23,5 @@ class Word: Object, ObjectKeyIdentifiable {
         self.wordString = word
         self.meaningString = meaning
     }
+    
 }

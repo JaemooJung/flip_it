@@ -8,7 +8,8 @@
 import Foundation
 import RealmSwift
 
-class WordGroup: Object, ObjectKeyIdentifiable {
+final class WordGroup: Object, ObjectKeyIdentifiable {
+    
     @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var groupName: String = "NoGroupName"
     @Persisted var wordLanguage: String = "NoWordLang"
@@ -20,5 +21,6 @@ class WordGroup: Object, ObjectKeyIdentifiable {
     convenience init(groupName: String) {
         self.init()
         self.groupName = groupName
+    
     }
 }

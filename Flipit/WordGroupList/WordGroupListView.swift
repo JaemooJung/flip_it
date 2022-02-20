@@ -146,7 +146,7 @@ extension WordGroupListView {
                         TextField("GroupName", text: self.$newWordGroupName)
                             .focused($newWordGroupNameFocus, equals: .newWordGroupName)
                             .onAppear {
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                     self.newWordGroupNameFocus = .newWordGroupName
                                 }
                             }
@@ -216,21 +216,21 @@ extension WordGroupListView {
                                     .fill(Color.f_orange)
                                     .frame(width: secondaryBorderWidth, height: 18)
                                 Button(role: .destructive) {
-                                    withAnimation {
-                                        wordGroupListViewModel.deleteWordGroup(id: wordGroup._id)
-                                    }
+                                    wordGroupDeleteAlert.toggle()
                                 } label: {
                                     Text("Delete")
                                         .foregroundColor(.red)
                                         .font(.custom("Montserrat-Light", size: 18))
                                 }
-//                                .alert("Delete \(wordGroup.groupName)", isPresented: $wordGroupDeleteAlert) {
-//                                    Button("Delete", role: .destructive) {
-//
-//                                    }
-//                                } message: {
-//                                    Text("If you delete word group, all the words will be permanantly deleted.")
-//                                }
+                                .alert("Delete", isPresented: $wordGroupDeleteAlert) {
+                                    Button("Delete") {
+                                        withAnimation {
+                                            wordGroupListViewModel.deleteWordGroup(id: wordGroup._id)
+                                        }
+                                    }
+                                } message: {
+                                    Text("If you delete word group, all the words will be permanantly deleted.")
+                                }
                                 
                             }
                             .transition(.move(edge: .trailing))
