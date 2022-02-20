@@ -16,7 +16,6 @@ class WordGroupListViewModel: ObservableObject {
     
     init() {
         openRealm()
-        fetchWordGroup()
     }
     
     var memorizedWordCount: Int {
@@ -38,7 +37,6 @@ class WordGroupListViewModel: ObservableObject {
             do {
                 try localRealm.write {
                     localRealm.add(WordGroup(groupName: groupName))
-                    fetchWordGroup()
                 }
             } catch {
                 print("Error adding new WordGroup to Realm : \(error.localizedDescription)")
@@ -47,6 +45,7 @@ class WordGroupListViewModel: ObservableObject {
     }
     
     func deleteWordGroup(id: ObjectId) {
+        print("delete started")
         if let localRealm = localRealm {
             do {
                 let wordGroupToDelete = localRealm.objects(WordGroup.self).filter(NSPredicate(format: "_id == %@", id))
@@ -60,13 +59,20 @@ class WordGroupListViewModel: ObservableObject {
                         }
                     }
                     localRealm.delete(wordGroupToDelete)
-                    fetchWordGroup()
                 })
                 UserDefaults.standard.set(nil, forKey: keyForWordGroupID)
             } catch {
                 print("Error Deleting WordGroup\(id) from Realm : \(error.localizedDescription)")
             }
-            
+        }
+        print("Delete done")
+    }
+    
+    func updateWordGroup(id: ObjectId, newWordGroupName: String) {
+        if let localRealm = localRealm {
+            let wordGroupToUpdate = localRealm.objects(WordGroup.self).filter(NSPredicate(format: "_id == %@", id))
+            guard !wordGroupToUpdate.isEmpty else { return }
+            wordGroupToUpdate.first!.updateGroupName(newName: newWordGroupName)
         }
     }
     

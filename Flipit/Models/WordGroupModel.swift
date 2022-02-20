@@ -21,6 +21,15 @@ final class WordGroup: Object, ObjectKeyIdentifiable {
     convenience init(groupName: String) {
         self.init()
         self.groupName = groupName
+    }
     
+    func updateGroupName(newName: String) {
+        if let realm = self.realm {
+            try? realm.write {
+                self.groupName = newName
+            }
+        } else {
+            
+        }
     }
 }

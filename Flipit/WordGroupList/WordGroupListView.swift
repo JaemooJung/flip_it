@@ -12,16 +12,23 @@ import UIKit
 struct WordGroupListView: View {
     
     @ObservedObject var wordGroupListViewModel: WordGroupListViewModel
+    @ObservedResults(WordGroup.self, sortDescriptor: SortDescriptor(keyPath: "timestamp", ascending: false)) var wordGroups
     
     @Binding var isWordGroupListViewPresented: Bool
     @Binding var currentWordGroupId: String
     
-    @State var wordGroupDeleteAlert: Bool = false
-    @State var isWordGroupOnEditing: Bool = false
-    @State var isAddWordGroupSheetPresented: Bool = false
-    @State var isMemorizedWordListPresented: Bool = false
+    @State private var wordGroupDeleteAlert: Bool = false
+    @State private var isWordGroupOnEditing: Bool = false
+    @State private var isAddWordGroupSheetPresented: Bool = false
+    @State private var isEditWordGroupSheetPresented: Bool = false
+    @State private var isMemorizedWordListPresented: Bool = false
     
-    @State var newWordGroupName: String = ""
+    @State private var wordGroupToDelete: WordGroup? = nil
+    @State private var wordGroupToEdit: WordGroup? = nil
+    
+    @State private var newWordGroupName: String = ""
+    @State private var wordGroupNameToUpdate: String = ""
+    
     @FocusState private var newWordGroupNameFocus: Field?
     
     enum Field: Hashable {
@@ -43,6 +50,8 @@ struct WordGroupListView: View {
             
             //Header
             wordGroupListHeader
+                
+            //Divider
             Rectangle()
                 .fill(Color.f_orange)
                 .frame(width: nil, height: secondaryBorderWidth)
@@ -52,13 +61,44 @@ struct WordGroupListView: View {
                 
                 //addWordGroupCell
                 addWordGroupCell
+                    .sheet(item: $wordGroupToEdit) { (wordGroup: WordGroup) in
+                        editWordGroupSheet(wordGroupToEdit: wordGroup)
+                            .onAppear {
+                                print("view appeared")
+                                self.wordGroupNameToUpdate = wordGroup.groupName
+                            }
+                            .onDisappear {
+                                print("Edit view Dissapeeard")
+                            }
+                    }
+                    .alert("Delete word group", isPresented: $wordGroupDeleteAlert, presenting: wordGroupToDelete) { (wordGroup:WordGroup) in
+                        Button("Delete", role: .destructive) {
+                            withAnimation {
+                                wordGroupListViewModel.deleteWordGroup(id: wordGroup._id)
+                            }
+                        }
+                    } message: { (wordGroup:WordGroup) in
+                        Text("\(wordGroup.groupName) and every words in this group will be permanantly deleted.")
+                    }
+
+//                    .alert("Delete \(wordGroup.groupName)", isPresented: $wordGroupDeleteAlert) {
+//                        Button("Delete", role: .destructive) {
+//                            withAnimation {
+//                                wordGroupListViewModel.deleteWordGroup(id: wordGroup._id)
+//                            }
+//                        }
+//                    } message: {
+//                        Text("\(wordGroup.groupName) and every words in this group will be permanantly deleted.")
+//                    }
+                    
+                
                 
                 //WordGroups
-                ForEach(wordGroupListViewModel.wordGroups) { wordGroup in
-                    if (wordGroup.isInvalidated == false) {
+                ForEach(wordGroups) { wordGroup in
                         wordGroupCell(wordGroup: wordGroup)
-                    }
-                }
+                        
+                }.zIndex(1)
+                
                 
                 //Memorized Words
                 toMemorizedWord
@@ -73,6 +113,7 @@ struct WordGroupListView: View {
 extension WordGroupListView {
     
     //MARK: Functions
+    
     private func addNewWordGroup() {
         withAnimation {
             guard (!self.newWordGroupName.isEmpty) else { return }
@@ -171,6 +212,59 @@ extension WordGroupListView {
             }
         }
     }
+    
+    //-----------------------------------------------------
+    
+    func editWordGroupSheet(wordGroupToEdit: WordGroup) -> some View {
+        
+        ZStack {
+            Color.f_navy.ignoresSafeArea()
+            VStack {
+                ZStack {
+                    VStack(spacing: 8) {
+                        HStack {
+                            Text("Edit Word Group")
+                                .font(.custom("Montserrat-Light", size: 28))
+                            Spacer()
+                        }.padding([.top, .horizontal])
+                        
+                        devider(length: 70)
+                        
+                        HStack {
+                            Text("Name")
+                                .font(.custom("Montserrat-Light", size: 20))
+                            Spacer()
+                        }.padding([.top, .leading, .trailing])
+                        
+                        TextField("GroupName", text: $wordGroupNameToUpdate)
+                            .onSubmit {
+                                wordGroupListViewModel.updateWordGroup(id: wordGroupToEdit._id,
+                                                                       newWordGroupName: wordGroupNameToUpdate)
+                                self.wordGroupToEdit = nil
+                            }
+                            .padding()
+                            .border(Color.f_orange)
+                            .padding(.horizontal)
+                        
+                        Button {
+                            wordGroupListViewModel.updateWordGroup(id: wordGroupToEdit._id,
+                                                                   newWordGroupName: wordGroupNameToUpdate)
+                            self.wordGroupToEdit = nil
+                        } label: {
+                            Text("Done")
+                        }
+                        .padding()
+                    }
+                    
+                }.border(Color.f_orange, width: 1)
+                    .padding(30)
+                
+                Spacer()
+            }
+        }
+        .foregroundColor(Color.f_orange)
+    }
+    
     //-----------------------------------------------------
 
     func wordGroupCell(wordGroup: WordGroup) -> some View {
@@ -200,52 +294,49 @@ extension WordGroupListView {
                         }
                         .padding(.horizontal)
                         
+                        
                         Spacer()
                         
                         //onEditing
                         if (isWordGroupOnEditing) {
                             HStack {
+                                
                                 Button {
-                                    //edit
+                                    wordGroupToEdit = wordGroup
                                 } label: {
                                     Text("Edit")
                                         .foregroundColor(.f_orange)
-                                        .font(.custom("Montserrat-Light", size: 18))
+                                        .font(.custom("Montserrat-Light", size: 16))
                                 }
+                                
+                                
                                 Rectangle()
                                     .fill(Color.f_orange)
-                                    .frame(width: secondaryBorderWidth, height: 18)
+                                    .frame(width: secondaryBorderWidth, height: 16)
+                                
                                 Button(role: .destructive) {
+                                    wordGroupToDelete = wordGroup
                                     wordGroupDeleteAlert.toggle()
                                 } label: {
                                     Text("Delete")
                                         .foregroundColor(.red)
-                                        .font(.custom("Montserrat-Light", size: 18))
+                                        .font(.custom("Montserrat-Light", size: 16))
                                 }
-                                .alert("Delete", isPresented: $wordGroupDeleteAlert) {
-                                    Button("Delete") {
-                                        withAnimation {
-                                            wordGroupListViewModel.deleteWordGroup(id: wordGroup._id)
-                                        }
-                                    }
-                                } message: {
-                                    Text("If you delete word group, all the words will be permanantly deleted.")
-                                }
-                                
                             }
                             .transition(.move(edge: .trailing))
                             .padding(.horizontal)
                             
                         }
-                        
-                    }.background(Color.f_navy)
-                    
+                    }
+            
                     Rectangle()
                         .fill(Color.f_orange)
                         .frame(width: nil, height: secondaryBorderWidth)
+                        .padding(.horizontal)
+                    
                 }
-
             }
+            .background(Color.f_navy)
             .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
             .listRowSeparator(.hidden)
 
@@ -255,10 +346,9 @@ extension WordGroupListView {
 
     var addWordGroupCell: some View {
         
-        VStack(spacing: 0) {
+        VStack(alignment: .center, spacing: 0) {
             
             HStack {
-                
                 Spacer()
                 
                 Button(action: {
@@ -272,17 +362,20 @@ extension WordGroupListView {
                     Label("", systemImage: "plus")
                         .font(.body)
                 }).sheet(isPresented: self.$isAddWordGroupSheetPresented, content: {
-                    addWordGroupSheet.background(.ultraThinMaterial)
+                    addWordGroupSheet
                 })
                     .padding()
                     .foregroundColor(.f_orange)
                 
                 Spacer()
             }
-    
-            Rectangle()
-                .fill(Color.f_orange)
-                .frame(width: nil, height: secondaryBorderWidth)
+
+                Rectangle()
+                    .fill(Color.f_orange)
+                    .frame(width: nil, height: secondaryBorderWidth)
+                    .padding(.horizontal)
+
+
         }
         .background(Color.f_navy)
         .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
