@@ -73,7 +73,7 @@ struct MemorizedWordListView: View {
                         wordListBody
                             .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                     }.listStyle(.plain)
-                        .padding(primaryBorderWidth)
+                        .padding([.bottom, .horizontal], primaryBorderWidth)
 
                 }
             }.padding(25)

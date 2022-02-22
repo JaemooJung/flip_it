@@ -10,7 +10,7 @@ import SwiftUI
 
 extension View {
     var primaryBorderWidth: CGFloat {
-        return 1.5
+        return 1
     }
     var secondaryBorderWidth: CGFloat {
         return 1

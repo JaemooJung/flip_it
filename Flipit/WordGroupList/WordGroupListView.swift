@@ -22,6 +22,7 @@ struct WordGroupListView: View {
     @State private var isAddWordGroupSheetPresented: Bool = false
     @State private var isEditWordGroupSheetPresented: Bool = false
     @State private var isMemorizedWordListPresented: Bool = false
+    @State private var isSettingViewPresented: Bool = false
     
     @State private var wordGroupToDelete: WordGroup? = nil
     @State private var wordGroupToEdit: WordGroup? = nil
@@ -71,28 +72,16 @@ struct WordGroupListView: View {
                                 print("Edit view Dissapeeard")
                             }
                     }
-                    .alert("Delete word group", isPresented: $wordGroupDeleteAlert, presenting: wordGroupToDelete) { (wordGroup:WordGroup) in
+                    .alert("Delete notebook", isPresented: $wordGroupDeleteAlert, presenting: wordGroupToDelete) { (wordGroup:WordGroup) in
                         Button("Delete", role: .destructive) {
                             withAnimation {
                                 wordGroupListViewModel.deleteWordGroup(id: wordGroup._id)
                             }
                         }
                     } message: { (wordGroup:WordGroup) in
-                        Text("\(wordGroup.groupName) and every words in this group will be permanantly deleted.")
+                        Text("[\(wordGroup.groupName)] and every words in this group will be permanantly deleted.")
                     }
 
-//                    .alert("Delete \(wordGroup.groupName)", isPresented: $wordGroupDeleteAlert) {
-//                        Button("Delete", role: .destructive) {
-//                            withAnimation {
-//                                wordGroupListViewModel.deleteWordGroup(id: wordGroup._id)
-//                            }
-//                        }
-//                    } message: {
-//                        Text("\(wordGroup.groupName) and every words in this group will be permanantly deleted.")
-//                    }
-                    
-                
-                
                 //WordGroups
                 ForEach(wordGroups) { wordGroup in
                         wordGroupCell(wordGroup: wordGroup)
@@ -148,8 +137,23 @@ extension WordGroupListView {
                     .padding()
                 Spacer()
             }
-            HStack {
+            
+            HStack(spacing: 0) {
+            
                 Spacer()
+                
+                Button {
+                    isSettingViewPresented.toggle()
+                } label: {
+                    Text("Settings")
+                        .font(.custom("Montserrat-Light", size: 16))
+                            .foregroundColor(.f_orange)
+                            .padding(.vertical)
+                }
+                .fullScreenCover(isPresented: $isSettingViewPresented) {
+                    SettingsView()
+                }
+                
                 Button("Edit") {
                     withAnimation {
                         self.isWordGroupOnEditing.toggle()
@@ -170,7 +174,7 @@ extension WordGroupListView {
                 ZStack {
                     VStack(spacing: 8) {
                         HStack {
-                            Text("New Word Group")
+                            Text("New Notebook")
                                 .font(.custom("Montserrat-Light", size: 28))
                             Spacer()
                         }.padding([.top, .horizontal])
@@ -184,7 +188,7 @@ extension WordGroupListView {
                         }.padding([.top, .leading, .trailing])
                         
                         // focus mode 추가하기
-                        TextField("GroupName", text: self.$newWordGroupName)
+                        TextField("notebookName", text: self.$newWordGroupName)
                             .focused($newWordGroupNameFocus, equals: .newWordGroupName)
                             .onAppear {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
@@ -223,7 +227,7 @@ extension WordGroupListView {
                 ZStack {
                     VStack(spacing: 8) {
                         HStack {
-                            Text("Edit Word Group")
+                            Text("Edit Notebook")
                                 .font(.custom("Montserrat-Light", size: 28))
                             Spacer()
                         }.padding([.top, .horizontal])
@@ -236,7 +240,7 @@ extension WordGroupListView {
                             Spacer()
                         }.padding([.top, .leading, .trailing])
                         
-                        TextField("GroupName", text: $wordGroupNameToUpdate)
+                        TextField("notebookName", text: $wordGroupNameToUpdate)
                             .onSubmit {
                                 wordGroupListViewModel.updateWordGroup(id: wordGroupToEdit._id,
                                                                        newWordGroupName: wordGroupNameToUpdate)
@@ -379,6 +383,7 @@ extension WordGroupListView {
         }
         .background(Color.f_navy)
         .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+        .listRowSeparator(.hidden)
        
         
     }

@@ -179,7 +179,7 @@ struct wordList: View {
                                 VStack(spacing: 0) {
                                     HStack {
                                         Spacer()
-                                        Text("당겨서 단어 추가하기")
+                                        Text("Pull to add new word")
                                             .padding()
                                             .font(.custom("Montserrat-Light", size: 16))
                                             .foregroundColor(.f_orange)
