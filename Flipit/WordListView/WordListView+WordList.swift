@@ -128,7 +128,7 @@ struct wordList: View {
                 }
                 .listRowSeparator(.visible)
                 .listRowSeparatorTint(.f_orange)
-                .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                .swipeActions(edge: .trailing) {
                     Button {
                         withAnimation(.easeInOut) {
                             wordListViewModel.markWordAsMemorized(wordId: word._id)

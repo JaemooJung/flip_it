@@ -33,16 +33,20 @@ struct MainView: View {
         ZStack {
             Color.f_navy.ignoresSafeArea()
             ZStack {
+                
                 ZStack {
+                    
                     Color.f_navy
                         .border(Color.f_ivory, width: primaryBorderWidth)
                         .offset(x: backFrameOffsetX, y: backFrameOffsetY)
                     Color.f_navy
+                    
                 }
                 
                 if (self.isWordGroupListViewPresented == false) {
                     WordListView(viewModel: WordListViewModel(wordGroupId: currentWordGroupId),
                                  isWordGroupListViewPresented: $isWordGroupListViewPresented)
+                        .disabled(isWordGroupListViewPresented)
                         .transition(.opacity)
                         .allowsHitTesting(!isWordGroupListViewPresented)
                         .zIndex(1)
@@ -57,8 +61,6 @@ struct MainView: View {
                         .allowsHitTesting(isWordGroupListViewPresented)
                         .zIndex(2)
                 }
-                
-                
                 
             }.padding(25)
             

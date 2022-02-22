@@ -313,7 +313,6 @@ extension WordGroupListView {
                                         .font(.custom("Montserrat-Light", size: 16))
                                 }
                                 
-                                
                                 Rectangle()
                                     .fill(Color.f_orange)
                                     .frame(width: secondaryBorderWidth, height: 16)
@@ -339,6 +338,7 @@ extension WordGroupListView {
                         .padding(.horizontal)
                     
                 }
+                
             }
             .background(Color.f_navy)
             .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
@@ -365,7 +365,9 @@ extension WordGroupListView {
                 }, label: {
                     Label("", systemImage: "plus")
                         .font(.body)
-                }).sheet(isPresented: self.$isAddWordGroupSheetPresented, content: {
+                })
+                    .buttonStyle(PlainButtonStyle())
+                    .sheet(isPresented: self.$isAddWordGroupSheetPresented, content: {
                     addWordGroupSheet
                 })
                     .padding()

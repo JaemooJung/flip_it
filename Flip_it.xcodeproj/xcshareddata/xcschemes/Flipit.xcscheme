@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CC15ACD727AE21C800ECF058"
-               BuildableName = "Flipit.app"
-               BlueprintName = "Flipit"
-               ReferencedContainer = "container:Flipit.xcodeproj">
+               BuildableName = "Flip_it.app"
+               BlueprintName = "Flip_it"
+               ReferencedContainer = "container:Flip_it.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CC15ACEC27AE21C900ECF058"
-               BuildableName = "FlipitTests.xctest"
-               BlueprintName = "FlipitTests"
-               ReferencedContainer = "container:Flipit.xcodeproj">
+               BuildableName = "Flip_itTests.xctest"
+               BlueprintName = "Flip_itTests"
+               ReferencedContainer = "container:Flip_it.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CC15ACF627AE21C900ECF058"
-               BuildableName = "FlipitUITests.xctest"
-               BlueprintName = "FlipitUITests"
-               ReferencedContainer = "container:Flipit.xcodeproj">
+               BuildableName = "Flip_itUITests.xctest"
+               BlueprintName = "Flip_itUITests"
+               ReferencedContainer = "container:Flip_it.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -65,9 +65,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CC15ACD727AE21C800ECF058"
-            BuildableName = "Flipit.app"
-            BlueprintName = "Flipit"
-            ReferencedContainer = "container:Flipit.xcodeproj">
+            BuildableName = "Flip_it.app"
+            BlueprintName = "Flip_it"
+            ReferencedContainer = "container:Flip_it.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -82,9 +82,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CC15ACD727AE21C800ECF058"
-            BuildableName = "Flipit.app"
-            BlueprintName = "Flipit"
-            ReferencedContainer = "container:Flipit.xcodeproj">
+            BuildableName = "Flip_it.app"
+            BlueprintName = "Flip_it"
+            ReferencedContainer = "container:Flip_it.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

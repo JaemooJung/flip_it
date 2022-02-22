@@ -11,8 +11,10 @@ import RealmSwift
 class WordListViewModel: ObservableObject {
     
     private(set) var localRealm: Realm?
+    
     @Published private(set) var words: [Word] = []
     let wordGroupId: String
+    
     var fetchedWordGroup: WordGroup?
     
     init(wordGroupId: String) {

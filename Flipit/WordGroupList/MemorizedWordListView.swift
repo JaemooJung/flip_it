@@ -35,7 +35,7 @@ struct MemorizedWordListView: View {
                 }
                 .listRowSeparator(.visible)
                 .listRowSeparatorTint(.f_orange)
-                .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                .swipeActions(edge: .trailing) {
                     Button {
                         withAnimation(.easeInOut) {
                             MemorizedWordListViewModel.markWordAsNotMemorized(wordId: word._id)

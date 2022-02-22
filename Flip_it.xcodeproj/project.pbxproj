@@ -110,14 +110,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CC15ACD827AE21C800ECF058 /* Flipit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flipit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC15ACD827AE21C800ECF058 /* Flip_it.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flip_it.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC15ACDB27AE21C800ECF058 /* FlipitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipitApp.swift; sourceTree = "<group>"; };
 		CC15ACDF27AE21C900ECF058 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CC15ACE227AE21C900ECF058 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CC15ACE727AE21C900ECF058 /* Flipit.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Flipit.xcdatamodel; sourceTree = "<group>"; };
-		CC15ACED27AE21C900ECF058 /* FlipitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlipitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC15ACED27AE21C900ECF058 /* Flip_itTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Flip_itTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC15ACF127AE21C900ECF058 /* FlipitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipitTests.swift; sourceTree = "<group>"; };
-		CC15ACF727AE21C900ECF058 /* FlipitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlipitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC15ACF727AE21C900ECF058 /* Flip_itUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Flip_itUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC15ACFB27AE21CA00ECF058 /* FlipitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipitUITests.swift; sourceTree = "<group>"; };
 		CC15ACFD27AE21CA00ECF058 /* FlipitUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipitUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CC15AD0F27AE241C00ECF058 /* WordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordModel.swift; sourceTree = "<group>"; };
@@ -202,9 +202,9 @@
 		CC15ACD927AE21C800ECF058 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CC15ACD827AE21C800ECF058 /* Flipit.app */,
-				CC15ACED27AE21C900ECF058 /* FlipitTests.xctest */,
-				CC15ACF727AE21C900ECF058 /* FlipitUITests.xctest */,
+				CC15ACD827AE21C800ECF058 /* Flip_it.app */,
+				CC15ACED27AE21C900ECF058 /* Flip_itTests.xctest */,
+				CC15ACF727AE21C900ECF058 /* Flip_itUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -343,9 +343,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CC15ACD727AE21C800ECF058 /* Flipit */ = {
+		CC15ACD727AE21C800ECF058 /* Flip_it */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CC15AD0127AE21CA00ECF058 /* Build configuration list for PBXNativeTarget "Flipit" */;
+			buildConfigurationList = CC15AD0127AE21CA00ECF058 /* Build configuration list for PBXNativeTarget "Flip_it" */;
 			buildPhases = (
 				CC15ACD427AE21C800ECF058 /* Sources */,
 				CC15ACD527AE21C800ECF058 /* Frameworks */,
@@ -355,18 +355,18 @@
 			);
 			dependencies = (
 			);
-			name = Flipit;
+			name = Flip_it;
 			packageProductDependencies = (
 				CC15AD0B27AE233E00ECF058 /* Realm */,
 				CC15AD0D27AE233E00ECF058 /* RealmSwift */,
 			);
 			productName = Flipit;
-			productReference = CC15ACD827AE21C800ECF058 /* Flipit.app */;
+			productReference = CC15ACD827AE21C800ECF058 /* Flip_it.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CC15ACEC27AE21C900ECF058 /* FlipitTests */ = {
+		CC15ACEC27AE21C900ECF058 /* Flip_itTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CC15AD0427AE21CA00ECF058 /* Build configuration list for PBXNativeTarget "FlipitTests" */;
+			buildConfigurationList = CC15AD0427AE21CA00ECF058 /* Build configuration list for PBXNativeTarget "Flip_itTests" */;
 			buildPhases = (
 				CC15ACE927AE21C900ECF058 /* Sources */,
 				CC15ACEA27AE21C900ECF058 /* Frameworks */,
@@ -377,14 +377,14 @@
 			dependencies = (
 				CC15ACEF27AE21C900ECF058 /* PBXTargetDependency */,
 			);
-			name = FlipitTests;
+			name = Flip_itTests;
 			productName = FlipitTests;
-			productReference = CC15ACED27AE21C900ECF058 /* FlipitTests.xctest */;
+			productReference = CC15ACED27AE21C900ECF058 /* Flip_itTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		CC15ACF627AE21C900ECF058 /* FlipitUITests */ = {
+		CC15ACF627AE21C900ECF058 /* Flip_itUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CC15AD0727AE21CA00ECF058 /* Build configuration list for PBXNativeTarget "FlipitUITests" */;
+			buildConfigurationList = CC15AD0727AE21CA00ECF058 /* Build configuration list for PBXNativeTarget "Flip_itUITests" */;
 			buildPhases = (
 				CC15ACF327AE21C900ECF058 /* Sources */,
 				CC15ACF427AE21C900ECF058 /* Frameworks */,
@@ -395,9 +395,9 @@
 			dependencies = (
 				CC15ACF927AE21C900ECF058 /* PBXTargetDependency */,
 			);
-			name = FlipitUITests;
+			name = Flip_itUITests;
 			productName = FlipitUITests;
-			productReference = CC15ACF727AE21C900ECF058 /* FlipitUITests.xctest */;
+			productReference = CC15ACF727AE21C900ECF058 /* Flip_itUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -423,7 +423,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CC15ACD327AE21C800ECF058 /* Build configuration list for PBXProject "Flipit" */;
+			buildConfigurationList = CC15ACD327AE21C800ECF058 /* Build configuration list for PBXProject "Flip_it" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -440,9 +440,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CC15ACD727AE21C800ECF058 /* Flipit */,
-				CC15ACEC27AE21C900ECF058 /* FlipitTests */,
-				CC15ACF627AE21C900ECF058 /* FlipitUITests */,
+				CC15ACD727AE21C800ECF058 /* Flip_it */,
+				CC15ACEC27AE21C900ECF058 /* Flip_itTests */,
+				CC15ACF627AE21C900ECF058 /* Flip_itUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -579,12 +579,12 @@
 /* Begin PBXTargetDependency section */
 		CC15ACEF27AE21C900ECF058 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CC15ACD727AE21C800ECF058 /* Flipit */;
+			target = CC15ACD727AE21C800ECF058 /* Flip_it */;
 			targetProxy = CC15ACEE27AE21C900ECF058 /* PBXContainerItemProxy */;
 		};
 		CC15ACF927AE21C900ECF058 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CC15ACD727AE21C800ECF058 /* Flipit */;
+			target = CC15ACD727AE21C800ECF058 /* Flip_it */;
 			targetProxy = CC15ACF827AE21C900ECF058 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -743,7 +743,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = jaemjung.Flipit;
+				PRODUCT_BUNDLE_IDENTIFIER = "jaemjung.Flip-it";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -776,7 +776,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = jaemjung.Flipit;
+				PRODUCT_BUNDLE_IDENTIFIER = "jaemjung.Flip-it";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -800,7 +800,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flipit.app/Flipit";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flip_it.app/Flip_it";
 			};
 			name = Debug;
 		};
@@ -820,7 +820,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flipit.app/Flipit";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Flip_it.app/Flip_it";
 			};
 			name = Release;
 		};
@@ -863,7 +863,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CC15ACD327AE21C800ECF058 /* Build configuration list for PBXProject "Flipit" */ = {
+		CC15ACD327AE21C800ECF058 /* Build configuration list for PBXProject "Flip_it" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CC15ACFF27AE21CA00ECF058 /* Debug */,
@@ -872,7 +872,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CC15AD0127AE21CA00ECF058 /* Build configuration list for PBXNativeTarget "Flipit" */ = {
+		CC15AD0127AE21CA00ECF058 /* Build configuration list for PBXNativeTarget "Flip_it" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CC15AD0227AE21CA00ECF058 /* Debug */,
@@ -881,7 +881,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CC15AD0427AE21CA00ECF058 /* Build configuration list for PBXNativeTarget "FlipitTests" */ = {
+		CC15AD0427AE21CA00ECF058 /* Build configuration list for PBXNativeTarget "Flip_itTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CC15AD0527AE21CA00ECF058 /* Debug */,
@@ -890,7 +890,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CC15AD0727AE21CA00ECF058 /* Build configuration list for PBXNativeTarget "FlipitUITests" */ = {
+		CC15AD0727AE21CA00ECF058 /* Build configuration list for PBXNativeTarget "Flip_itUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CC15AD0827AE21CA00ECF058 /* Debug */,
