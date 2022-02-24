@@ -13,6 +13,8 @@ struct WordListView: View {
     @ObservedObject var wordListViewModel: WordListViewModel
     @Binding var isWordGroupListViewPresented: Bool
     
+    @State private var editmode: EditMode = .inactive
+    
     init(viewModel: WordListViewModel, isWordGroupListViewPresented: Binding<Bool>) {
         wordListViewModel = viewModel
         _isWordGroupListViewPresented = isWordGroupListViewPresented
@@ -31,7 +33,7 @@ struct WordListView: View {
                         } label: {
                             Text(Image(systemName: "line.3.horizontal"))
                                 .font(.title)
-                                .fontWeight(.light)
+                                .fontWeight(.thin)
                                 .foregroundColor(Color.f_orange)
                         }
                         Spacer()
@@ -43,16 +45,17 @@ struct WordListView: View {
                             .foregroundColor(Color.f_orange)
                             .font(.custom("Montserrat-Light", size: 30))
                         Spacer()
-                    }.padding([.bottom, .leading, .trailing])
+                    }.padding([.horizontal])
                     
                     devider(length: 100)
-                    
+                        .padding(.top, 12)
                 }
 
                 // 단어 리스트
                 wordList()
                     .padding([.bottom, .leading, .trailing], primaryBorderWidth)
                     .environmentObject(self.wordListViewModel)
+                    .environment(\.editMode, self.$editmode)
 
             }
     }

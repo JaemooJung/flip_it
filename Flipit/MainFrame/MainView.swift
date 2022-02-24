@@ -48,7 +48,6 @@ struct MainView: View {
                                  isWordGroupListViewPresented: $isWordGroupListViewPresented)
                         .disabled(isWordGroupListViewPresented)
                         .transition(.opacity)
-                        .allowsHitTesting(!isWordGroupListViewPresented)
                         .zIndex(1)
                 } else {
                     ZStack {
@@ -56,9 +55,8 @@ struct MainView: View {
                         WordGroupListView(viewModel: WordGroupListViewModel(),
                                           isWordGroupListViewPresented: $isWordGroupListViewPresented,
                                           currentWordGroupId: $currentWordGroupId)
-                        
+                            .disabled(!isWordGroupListViewPresented)
                     }.transition(.move(edge: .leading))
-                        .allowsHitTesting(isWordGroupListViewPresented)
                         .zIndex(2)
                 }
                 

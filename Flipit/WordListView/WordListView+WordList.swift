@@ -132,10 +132,18 @@ struct wordList: View {
                     Button {
                         withAnimation(.easeInOut) {
                             wordListViewModel.markWordAsMemorized(wordId: word._id)
-                            
                         }
                     } label: {
                         Text("it's in my brain now!")
+                            .font(.caption2)
+                    }
+                    .tint(.f_orange)
+                }
+                .swipeActions(edge: .leading) {
+                    Button {
+                        print("WTF")
+                    } label: {
+                        Text("WTF")
                             .font(.caption2)
                     }
                     .tint(.f_orange)
@@ -228,13 +236,6 @@ struct wordList: View {
     
     func customPullAction(reader: GeometryProxy) {
         DispatchQueue.main.async {
-            
-            print(reader.frame(in: .global).minY)
-            print("startingOffset: \(startingOffsetY)")
-            print(isAddingNewWord)
-            print(isListPulled)
-            print(isListReleased)
-            print(isAddingNewWordViewClosed)
             
             if (self.listGeoReaderHeight == 0) {
                 listGeoReaderHeight = reader.frame(in: .global).height

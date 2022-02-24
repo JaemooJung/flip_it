@@ -6,28 +6,93 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct MemorizedWordListView: View {
     
+    @Environment(\.presentationMode) var presentationMode
+    
     @ObservedObject var MemorizedWordListViewModel: MemorizedWordListViewModel
     @Binding var isMemorizedWordListViewPresented: Bool
+    @ObservedResults(Word.self,
+                     filter: NSPredicate(format: "isMemorized == %@", NSNumber(value: true)),
+                     sortDescriptor: SortDescriptor(keyPath: "timestamp",
+                                                    ascending: false)) var memorizedWords
+    
+    var body: some View {
+        
+        ZStack {
+            Color.f_navy.ignoresSafeArea()
+            ZStack {
+                ZStack {
+                    
+                    Color.f_navy
+                        .border(Color.f_ivory, width: primaryBorderWidth)
+                        .offset(x: 8, y: 8)
+                    Color.f_navy
+                        .border(Color.f_orange, width: primaryBorderWidth)
+                    
+                }
+                VStack(spacing: 0) {
+                    
+                    wordListHeader
+                        .zIndex(1)
+                        .background(Color.f_navy)
+                        .padding([.top, .horizontal], primaryBorderWidth)
+                    
+                    List {
+                        
+                        wordListBody
+                            .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                        
+                    }.listStyle(.plain)
+                        .padding([.bottom, .horizontal], primaryBorderWidth)
+                        .offset(x: 0, y: -1)
+
+                }
+                
+            }.padding(25)
+        }
+    }
+}
+
+extension MemorizedWordListView {
     
     var wordListHeader: some View {
-        VStack {
-            Text("Memorized Words")
-                .foregroundColor(Color.f_orange)
-                .padding(30)
-                .font(.custom("Montserrat-Light", size: 30))
-                .onTapGesture {
-                    withAnimation(.default) {
-                        self.isMemorizedWordListViewPresented.toggle()
-                    }
+        VStack(spacing: 0) {
+            
+            HStack {
+                
+                Button {
+                    presentationMode.wrappedValue.dismiss()
+                } label: {
+                    Text(Image(systemName: "chevron.down"))
+                        .font(.title)
+                        .fontWeight(.thin)
+                        .foregroundColor(Color.f_orange)
                 }
+                Spacer()
+                
+            }.padding([.top, .leading, .trailing])
+                .padding(.bottom, 12)
+            
+            HStack {
+                
+                Text("Memorized words")
+                    .foregroundColor(Color.f_orange)
+                    .font(.custom("Montserrat-Light", size: 24))
+                Spacer()
+                
+            }.padding([.horizontal])
+            
+            devider(length: 100)
+                .padding(.top, 12)
+            
         }
     }
     
     var wordListBody: some View {
-        ForEach(MemorizedWordListViewModel.MemorizedWords) { word in
+        ForEach(memorizedWords) { word in
                 FlippableWordCell {
                     cardFront(text: word.wordString)
                 } back: {
@@ -46,40 +111,20 @@ struct MemorizedWordListView: View {
                     }
                     .tint(.f_orange)
                 }
+                .swipeActions(edge: .leading) {
+                    Button(role: .destructive) {
+                        withAnimation(.easeInOut) {
+                            MemorizedWordListViewModel.deleteWord(wordId: word._id)
+                        }
+                    } label: {
+                        Text("Delete word")
+                    }
+                }
         }
         
     }
-    
-    var body: some View {
-        
-        ZStack {
-            Color.f_navy.ignoresSafeArea()
-            ZStack {
-                ZStack {
-                    Color.f_navy
-                        .border(Color.f_ivory, width: primaryBorderWidth)
-                        .offset(x: 8, y: 8)
-                    Color.f_navy
-                        .border(Color.f_orange, width: primaryBorderWidth)
-                }
-                VStack(spacing: 0) {
-                    
-                    wordListHeader
-                    
-                    Rectangle()
-                        .fill(Color.f_orange)
-                        .frame(width: nil, height: primaryBorderWidth)
-                    List {
-                        wordListBody
-                            .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-                    }.listStyle(.plain)
-                        .padding([.bottom, .horizontal], primaryBorderWidth)
 
-                }
-            }.padding(25)
-        }
-        
-    }
+    
 }
 
 //struct MemorizedWordListView_Previews: PreviewProvider {

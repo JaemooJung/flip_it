@@ -14,6 +14,7 @@ struct devider: View {
     let length: CGFloat
     
     var body: some View {
+        
         HStack {
             Rectangle()
                 .fill(Color.f_orange)

@@ -78,4 +78,5 @@ class WordListViewModel: ObservableObject {
         let wordsToFetch = fetchedWordGroup!.words.where({$0.isMemorized == false}).sorted(byKeyPath: "timestamp", ascending: false)
         self.words = Array(wordsToFetch)
     }
+    
 }

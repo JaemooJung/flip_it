@@ -32,6 +32,8 @@ struct WordGroupListView: View {
     
     @FocusState private var newWordGroupNameFocus: Field?
     
+    @State private var editmode: EditMode = .inactive
+    
     enum Field: Hashable {
         case newWordGroupName, none
     }
@@ -65,11 +67,7 @@ struct WordGroupListView: View {
                     .sheet(item: $wordGroupToEdit) { (wordGroup: WordGroup) in
                         editWordGroupSheet(wordGroupToEdit: wordGroup)
                             .onAppear {
-                                print("view appeared")
                                 self.wordGroupNameToUpdate = wordGroup.groupName
-                            }
-                            .onDisappear {
-                                print("Edit view Dissapeeard")
                             }
                     }
                     .alert("Delete notebook", isPresented: $wordGroupDeleteAlert, presenting: wordGroupToDelete) { (wordGroup:WordGroup) in
@@ -85,7 +83,6 @@ struct WordGroupListView: View {
                 //WordGroups
                 ForEach(wordGroups) { wordGroup in
                         wordGroupCell(wordGroup: wordGroup)
-                        
                 }.zIndex(1)
                 
                 
@@ -95,6 +92,7 @@ struct WordGroupListView: View {
             }.listStyle(.plain)
                 .padding([.leading, .bottom, .trailing], 1)
                 .environment(\.defaultMinListRowHeight, 0)
+                .environment(\.editMode, self.$editmode)
         }
     }
 }
@@ -153,7 +151,7 @@ extension WordGroupListView {
                 .fullScreenCover(isPresented: $isSettingViewPresented) {
                     SettingsView()
                 }
-                
+
                 Button("Edit") {
                     withAnimation {
                         self.isWordGroupOnEditing.toggle()
@@ -165,6 +163,7 @@ extension WordGroupListView {
             
         }
     }
+    
     //-----------------------------------------------------
 
     var addWordGroupSheet: some View {
@@ -276,11 +275,14 @@ extension WordGroupListView {
             Button {
                 if (self.isWordGroupOnEditing == true) {
                     withAnimation {
+                        
                         isWordGroupOnEditing.toggle()
                     }
                 }
+                print("to group button tapped")
                 toSelectedWordList(wordGroup: wordGroup)
             } label: {
+                
                 VStack(spacing: 0) {
                     HStack {
                         VStack(alignment: .leading, spacing: 0) {
@@ -344,8 +346,8 @@ extension WordGroupListView {
             .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
             .listRowSeparator(.hidden)
 
-        
     }
+    
     //-----------------------------------------------------
 
     var addWordGroupCell: some View {
@@ -356,6 +358,7 @@ extension WordGroupListView {
                 Spacer()
                 
                 Button(action: {
+                    print("button tapped")
                     if (self.isWordGroupOnEditing == true) {
                         withAnimation {
                             isWordGroupOnEditing.toggle()
@@ -433,7 +436,7 @@ extension WordGroupListView {
             
         }.listRowSeparator(.hidden)
     }
-    
+
     //-----------------------------------------------------
 
 }

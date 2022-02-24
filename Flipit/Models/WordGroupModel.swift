@@ -32,4 +32,5 @@ final class WordGroup: Object, ObjectKeyIdentifiable {
             
         }
     }
+    
 }

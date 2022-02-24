@@ -15,7 +15,6 @@ class MemorizedWordListViewModel: ObservableObject {
     
     init() {
         openRealm()
-        fetchMemorizedWords()
     }
     
     func openRealm() {
@@ -28,25 +27,44 @@ class MemorizedWordListViewModel: ObservableObject {
         }
     }
 
-    func fetchMemorizedWords() {
-        if let localRealm = localRealm {
-            let fetchedResult = localRealm.objects(Word.self).where({$0.isMemorized == true}).sorted(byKeyPath: "timestamp", ascending: true)
-            self.MemorizedWords = Array(fetchedResult)
-        }
-    }
+//    func fetchMemorizedWords() {
+//        if let localRealm = localRealm {
+//            let fetchedResult = localRealm.objects(Word.self).where({$0.isMemorized == true}).sorted(byKeyPath: "timestamp", ascending: true)
+//            self.MemorizedWords = Array(fetchedResult)
+//        }
+//    }
     
     func markWordAsNotMemorized(wordId: ObjectId) {
         if let localRealm = localRealm {
             do {
-                let wordToUpdate = localRealm.objects(Word.self).filter(NSPredicate(format: "_id == %@", wordId))
-                guard (!wordToUpdate.isEmpty) else { return }
+                guard let wordToUpdate = localRealm.object(ofType: Word.self, forPrimaryKey: wordId) else {
+                    print("failed to find word to update from realm")
+                    return
+                }
                 try localRealm.write {
-                    wordToUpdate[0].isMemorized = false
-                    fetchMemorizedWords()
+                    wordToUpdate.isMemorized = false
                 }
             } catch {
                 print("Error changing isMemorized : \(error.localizedDescription)")
             }
         }
     }
+    
+    func deleteWord(wordId: ObjectId) {
+        if let localRealm = localRealm {
+            do {
+                guard let wordToDelete = localRealm.object(ofType: Word.self, forPrimaryKey: wordId) else {
+                    print("failed to find word to delete from realm")
+                    return
+                }
+                try localRealm.write {
+                    localRealm.delete(wordToDelete)
+                }
+            } catch {
+                print("Error: failed to delete word \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    
 }
