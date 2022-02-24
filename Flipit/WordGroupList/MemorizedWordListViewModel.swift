@@ -41,8 +41,14 @@ class MemorizedWordListViewModel: ObservableObject {
                     print("failed to find word to update from realm")
                     return
                 }
-                try localRealm.write {
-                    wordToUpdate.isMemorized = false
+                if (wordToUpdate.wordGroup.isEmpty) {
+                    try localRealm.write {
+                        localRealm.delete(wordToUpdate)
+                    }
+                } else {
+                    try localRealm.write {
+                        wordToUpdate.isMemorized = false
+                    }
                 }
             } catch {
                 print("Error changing isMemorized : \(error.localizedDescription)")

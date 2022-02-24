@@ -75,7 +75,7 @@ class WordListViewModel: ObservableObject {
         guard let fetchedResult = localRealm.objects(WordGroup.self)
                 .filter(NSPredicate(format: "_id == %@", convertedID)).first else { return }
         self.fetchedWordGroup = fetchedResult
-        let wordsToFetch = fetchedWordGroup!.words.where({$0.isMemorized == false}).sorted(byKeyPath: "timestamp", ascending: false)
+        let wordsToFetch = fetchedWordGroup!.words.where({$0.isMemorized == false}).sorted(byKeyPath: "_id", ascending: false)
         self.words = Array(wordsToFetch)
     }
     

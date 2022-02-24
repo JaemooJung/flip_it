@@ -44,11 +44,12 @@ struct wordList: View {
     
     //MARK: Variables
     @EnvironmentObject var wordListViewModel: WordListViewModel
+    
     @State var isAddingNewWord: Bool = false
     @State var newWord: String = ""
     @State var newWordMeaning: String = ""
-    
     @State var isAddingNewWordViewClosed: Bool = true
+    
     @State var startingOffsetY: CGFloat = 0.0
     @State var currentOffsetY: CGFloat = 0.0
     @State var listGeoReaderHeight: CGFloat = 0.0
@@ -84,6 +85,7 @@ struct wordList: View {
                             }
                         }
                         .submitLabel(.return)
+                        .textInputAutocapitalization(.never)
                     Spacer()
                 }
                 .background(Color.f_ivory)
@@ -110,6 +112,7 @@ struct wordList: View {
                                 }
                         }
                         .submitLabel(.return)
+                        .textInputAutocapitalization(.never)
                     Spacer()
                 }
                 .background(Color.f_orange)
@@ -135,15 +138,6 @@ struct wordList: View {
                         }
                     } label: {
                         Text("it's in my brain now!")
-                            .font(.caption2)
-                    }
-                    .tint(.f_orange)
-                }
-                .swipeActions(edge: .leading) {
-                    Button {
-                        print("WTF")
-                    } label: {
-                        Text("WTF")
                             .font(.caption2)
                     }
                     .tint(.f_orange)

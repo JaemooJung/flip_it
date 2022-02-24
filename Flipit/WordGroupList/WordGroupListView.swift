@@ -7,7 +7,6 @@
 
 import SwiftUI
 import RealmSwift
-import UIKit
 
 struct WordGroupListView: View {
     
@@ -275,12 +274,13 @@ extension WordGroupListView {
             Button {
                 if (self.isWordGroupOnEditing == true) {
                     withAnimation {
-                        
                         isWordGroupOnEditing.toggle()
                     }
                 }
-                print("to group button tapped")
+                let hapticFeedback = UIImpactFeedbackGenerator(style: .light)
+                hapticFeedback.impactOccurred()
                 toSelectedWordList(wordGroup: wordGroup)
+                
             } label: {
                 
                 VStack(spacing: 0) {
@@ -299,7 +299,6 @@ extension WordGroupListView {
                             
                         }
                         .padding(.horizontal)
-                        
                         
                         Spacer()
                         
@@ -367,7 +366,7 @@ extension WordGroupListView {
                     self.isAddWordGroupSheetPresented.toggle()
                 }, label: {
                     Label("", systemImage: "plus")
-                        .font(.body)
+                        .font(.system(size: 20, weight: .light, design: .default))
                 })
                     .buttonStyle(PlainButtonStyle())
                     .sheet(isPresented: self.$isAddWordGroupSheetPresented, content: {
@@ -389,7 +388,6 @@ extension WordGroupListView {
         .background(Color.f_navy)
         .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
         .listRowSeparator(.hidden)
-       
         
     }
     
@@ -425,9 +423,10 @@ extension WordGroupListView {
             MemorizedWordsCell()
                 .listRowSeparator(.hidden)
         }
-        .buttonStyle(PlainButtonStyle())
+        .buttonStyle(.plain)
         .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
         .sheet(isPresented: $isMemorizedWordListPresented) {
+            
             MemorizedWordListView(MemorizedWordListViewModel: MemorizedWordListViewModel(),
                                   isMemorizedWordListViewPresented: $isMemorizedWordListPresented)
                 .onDisappear {

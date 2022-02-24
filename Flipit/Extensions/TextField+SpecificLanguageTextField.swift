@@ -29,7 +29,6 @@ class SpecificLanguageTextField: UITextField {
         }
         return super.textInputMode
     }
-    
 }
 
 struct SpecificLanguageTextFieldView: UIViewRepresentable {
