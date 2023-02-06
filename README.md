@@ -2,7 +2,7 @@
 
 ### 단어 암기를 뒤집다
 
-![flip_it](readmeAssets/main.png)
+![flip_it](readmeAssets/main.png){: width="300" height="300" style="display: block; margin: 0 auto"}
 
 filp-it은 군더더기 없는 단어암기장입니다. <br>
 손쉽게 단어를 추가하고 원할 때 꺼내어 외워보세요.
