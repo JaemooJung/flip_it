@@ -2,7 +2,7 @@
 
 ### 단어 암기를 뒤집다
 
-![flip_it](readmeAssets/main.png){: width="300" height="300" style="display: block; margin: 0 auto"}
+<img src="readmeAssets/main.png" width="400">
 
 filp-it은 군더더기 없는 단어암기장입니다. <br>
 손쉽게 단어를 추가하고 원할 때 꺼내어 외워보세요.
@@ -14,11 +14,15 @@ filp-it은 군더더기 없는 단어암기장입니다. <br>
 ## 기능
 
 ### 리스트를 당겨 단어를 추가할 수 있습니다.
-![당겨서단어추가](readmeAssets/pullToAddWords.png)
-![단어추가창](readmeAssets/addWord.png)
+
+<img src="readmeAssets/pullToAddWords.png" width="400">
+<img src="readmeAssets/addWord.png" width="400">
+<p>
 
 ### 단어를 누르면 단어의 뜻을 볼 수 있습니다.
-![단어뜻보기](readmeAssets/flipedWordCard.png)
+
+<img src="readmeAssets/flipedWordCard.png" width="400">
+<p>
 
 ### 외운 단어는 스와이프로 지울 수 있습니다.
-![외운단어](readmeAssets/swipeToMemorise.png)
+<img src="readmeAssets/swipeToMemorise.png" width="400">
