@@ -9,9 +9,17 @@ import SwiftUI
 
 @main
 struct FlipitApp: App {
+    
+    @AppStorage("isOnboardingPresented") var isOnboardingPresented: Bool = true
+    
     var body: some Scene {
         WindowGroup {
-            MainView()
+            if (isOnboardingPresented == true) {
+                onboardingView(isOnboardingPresented: $isOnboardingPresented)
+                    .transition(.move(edge: .bottom))
+            } else {
+                MainView().transition(.opacity)
+            }
         }
     }
 }

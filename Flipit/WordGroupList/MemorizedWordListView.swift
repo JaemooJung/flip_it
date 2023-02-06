@@ -19,6 +19,7 @@ struct MemorizedWordListView: View {
                      sortDescriptor: SortDescriptor(keyPath: "timestamp",
                                                     ascending: false)) var memorizedWords
     
+    
     var body: some View {
         
         ZStack {
@@ -101,6 +102,7 @@ extension MemorizedWordListView {
     }
     
     var wordListBody: some View {
+        
         ForEach(memorizedWords) { word in
                 FlippableWordCell {
                     cardFront(text: word.wordString)
@@ -116,7 +118,7 @@ extension MemorizedWordListView {
                             MemorizedWordListViewModel.markWordAsNotMemorized(wordId: word._id)
                         }
                     } label: {
-                        Text("Ahh.. I don't Think it's in my brain :(")
+                        Text("Ahh.. I don't think I memorized :(")
                             .font(.caption2)
                     }
                     .tint(.f_orange)
@@ -127,7 +129,7 @@ extension MemorizedWordListView {
                             MemorizedWordListViewModel.deleteWord(wordId: word._id)
                         }
                     } label: {
-                        Text("Delete word")
+                        Text("Delete word →")
                     }
                 }
         }

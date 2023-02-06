@@ -10,7 +10,6 @@ import SwiftUI
 struct cardFront: View {
     
     var text: String
-    
     var body: some View {
         HStack {
             Text(text)
@@ -19,9 +18,7 @@ struct cardFront: View {
             Spacer()
         }
         .background(Color.f_navy)
-    
     }
-    
 }
 
 struct cardBack: View {
@@ -62,99 +59,6 @@ struct wordList: View {
     }
     
     @FocusState private var focusField: Field?
-    
-    //MARK: SubViews
-    
-    var addWordView: some View {
-        VStack(spacing: 0) {
-            if (self.isAddingNewWord) {
-                HStack {
-                    TextField("New word here", text: $newWord)
-                        .foregroundColor(Color.f_navy)
-                        .padding()
-                        .focused($focusField, equals: .word)
-                        .onSubmit {
-                            withAnimation(.default) {
-                                if (newWordMeaning.isEmpty) {
-                                    focusField = .meaning
-                                } else {
-                                    wordListViewModel.addNewWord(newWord: newWord, meaning: newWordMeaning)
-                                    newWord = ""
-                                    newWordMeaning = ""
-                                }
-                            }
-                        }
-                        .submitLabel(.return)
-                        .textInputAutocapitalization(.never)
-                    Spacer()
-                }
-                .background(Color.f_ivory)
-                .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-                .listRowSeparator(.hidden)
-                .onAppear {
-                    focusField = .word
-                }
-                
-                HStack {
-                    TextField("New meaning here", text: $newWordMeaning)
-                        .foregroundColor(Color.f_ivory)
-                        .padding()
-                        .focused($focusField, equals: .meaning)
-                        .onSubmit {
-                                withAnimation(.default) {
-                                    if (!newWord.isEmpty) {
-                                        wordListViewModel.addNewWord(newWord: newWord,
-                                                                     meaning: newWordMeaning)
-                                    }
-                                    newWord = ""
-                                    newWordMeaning = ""
-                                    focusField = .word
-                                }
-                        }
-                        .submitLabel(.return)
-                        .textInputAutocapitalization(.never)
-                    Spacer()
-                }
-                .background(Color.f_orange)
-                .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-                .listRowSeparator(.hidden)
-            }
-        }
-    }
-    
-    var wordListBody: some View {
-        ForEach(wordListViewModel.words) { word in
-                FlippableWordCell {
-                    cardFront(text: word.wordString)
-                } back: {
-                    cardBack(text: word.meaningString)
-                }
-                .listRowSeparator(.visible)
-                .listRowSeparatorTint(.f_orange)
-                .swipeActions(edge: .trailing) {
-                    Button {
-                        withAnimation(.easeInOut) {
-                            wordListViewModel.markWordAsMemorized(wordId: word._id)
-                        }
-                    } label: {
-                        Text("it's in my brain now!")
-                            .font(.caption2)
-                    }
-                    .tint(.f_orange)
-                }
-                
-
-        }
-//                    .onDelete(perform: { idx in
-//                        let tmpWords = wordListViewModel.Words.reversed()[idx.first!]
-//                        if let ndx = wordListViewModel.Words.firstIndex(of: tmpWords) {
-//                            wordListViewModel.Words.remove(at: ndx)
-//                        }
-//                    })
-        .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-        .background(Color.f_orange)
-    }
-    
     
     //MARK: Body
     var body: some View {
@@ -226,6 +130,106 @@ struct wordList: View {
         }
     }
     
+}
+
+extension wordList {
+    
+    //MARK: SubViews
+    
+    var addWordView: some View {
+        VStack(spacing: 0) {
+            if (self.isAddingNewWord) {
+                HStack {
+                    TextField("New word here", text: $newWord)
+                        .foregroundColor(Color.f_navy)
+                        .padding()
+                        .focused($focusField, equals: .word)
+                        .onSubmit {
+                            withAnimation(.default) {
+                                if (newWordMeaning.isEmpty) {
+                                    focusField = .meaning
+                                } else {
+                                    wordListViewModel.addNewWord(newWord: newWord, meaning: newWordMeaning)
+                                    newWord = ""
+                                    newWordMeaning = ""
+                                }
+                            }
+                        }
+                        .submitLabel(.return)
+                        .textInputAutocapitalization(.never)
+                    Spacer()
+                }
+                .background(Color.f_ivory)
+                .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                .listRowSeparator(.hidden)
+                .onAppear {
+                    focusField = .word
+                }
+                
+                HStack {
+                    TextField("New meaning here", text: $newWordMeaning)
+                        .foregroundColor(Color.f_ivory)
+                        .padding()
+                        .focused($focusField, equals: .meaning)
+                        .onSubmit {
+                            withAnimation(.default) {
+                                if (!newWord.isEmpty) {
+                                    wordListViewModel.addNewWord(newWord: newWord,
+                                                                 meaning: newWordMeaning)
+                                }
+                                newWord = ""
+                                newWordMeaning = ""
+                                focusField = .word
+                            }
+                        }
+                        .submitLabel(.return)
+                        .textInputAutocapitalization(.never)
+                    Spacer()
+                }
+                .background(Color.f_orange)
+                .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+                .listRowSeparator(.hidden)
+            }
+        }
+    }
+
+    var wordListBody: some View {
+        ForEach(wordListViewModel.words) { word in
+            FlippableWordCell {
+                cardFront(text: word.wordString)
+            } back: {
+                cardBack(text: word.meaningString)
+            }
+            .listRowSeparator(.visible)
+            .listRowSeparatorTint(.f_orange)
+            .swipeActions(edge: .trailing) {
+                Button {
+                    withAnimation(.easeInOut) {
+                        wordListViewModel.markWordAsMemorized(wordId: word._id)
+                    }
+                } label: {
+                    Text("← Memorized")
+                    
+                }
+                .tint(.f_orange)
+            }
+            
+            
+        }
+        //                    .onDelete(perform: { idx in
+        //                        let tmpWords = wordListViewModel.Words.reversed()[idx.first!]
+        //                        if let ndx = wordListViewModel.Words.firstIndex(of: tmpWords) {
+        //                            wordListViewModel.Words.remove(at: ndx)
+        //                        }
+        //                    })
+        .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+        .background(Color.f_orange)
+    }
+    
+}
+
+extension wordList {
+    
     //MARK: Functions
     
     func customPullAction(reader: GeometryProxy) {
@@ -274,7 +278,7 @@ struct wordList: View {
             }
             
         }
-
+        
     }
     
 }

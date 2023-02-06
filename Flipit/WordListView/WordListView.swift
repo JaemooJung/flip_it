@@ -41,10 +41,12 @@ struct WordListView: View {
                         .padding(.bottom, 12)
                     
                     HStack {
+                        
                         Text(wordListViewModel.fetchedWordGroup?.groupName ?? "NoWordGroupName")
                             .foregroundColor(Color.f_orange)
                             .font(.custom("Montserrat-Light", size: 30))
                         Spacer()
+                        
                     }.padding([.horizontal])
                     
                     devider(length: 100)

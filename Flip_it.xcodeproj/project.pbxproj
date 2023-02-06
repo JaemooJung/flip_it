@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC111A5727CA3E8200776ADA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC111A5627CA3E8200776ADA /* LaunchScreen.storyboard */; };
 		CC15ACDC27AE21C800ECF058 /* FlipitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC15ACDB27AE21C800ECF058 /* FlipitApp.swift */; };
 		CC15ACE027AE21C900ECF058 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC15ACDF27AE21C900ECF058 /* Assets.xcassets */; };
 		CC15ACE327AE21C900ECF058 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CC15ACE227AE21C900ECF058 /* Preview Assets.xcassets */; };
@@ -86,6 +87,7 @@
 		CC254E1A27B16A3E001FBD91 /* UIScreen+ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC254E1927B16A3E001FBD91 /* UIScreen+ScreenSize.swift */; };
 		CC254E1C27B17061001FBD91 /* View+convenieces.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC254E1B27B17061001FBD91 /* View+convenieces.swift */; };
 		CC87D25127C4AC3400132AC2 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CC87D25327C4AC3400132AC2 /* Localizable.strings */; };
+		CC9B5F8427C891DD009CCC7A /* onboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC9B5F8327C891DD009CCC7A /* onboardingView.swift */; };
 		CCD2B49127C36F3600D43ECC /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD2B49027C36F3600D43ECC /* SettingsView.swift */; };
 		CCD2B49527C38C7F00D43ECC /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD2B49427C38C7F00D43ECC /* MailView.swift */; };
 		CCF5F54827BB7E4D00298E8A /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5F54727BB7E4D00298E8A /* Components.swift */; };
@@ -110,6 +112,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CC111A5627CA3E8200776ADA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CC15ACD827AE21C800ECF058 /* Flip_it.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flip_it.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC15ACDB27AE21C800ECF058 /* FlipitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipitApp.swift; sourceTree = "<group>"; };
 		CC15ACDF27AE21C900ECF058 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -156,6 +159,7 @@
 		CC254E1B27B17061001FBD91 /* View+convenieces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+convenieces.swift"; sourceTree = "<group>"; };
 		CC87D25227C4AC3400132AC2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		CC87D25427C4AC3800132AC2 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		CC9B5F8327C891DD009CCC7A /* onboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = onboardingView.swift; sourceTree = "<group>"; };
 		CCD2B49027C36F3600D43ECC /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		CCD2B49427C38C7F00D43ECC /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
 		CCF5F54727BB7E4D00298E8A /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
@@ -215,6 +219,7 @@
 				CC15AD7727AEA64100ECF058 /* Info.plist */,
 				CC87D25327C4AC3400132AC2 /* Localizable.strings */,
 				CC15AD2E27AEA62B00ECF058 /* Fonts */,
+				CC9B5F8227C891C5009CCC7A /* onboarding */,
 				CCD2B48F27C36F1700D43ECC /* SettingsView */,
 				CC15AD2527AE4D3100ECF058 /* WordListView */,
 				CC15AD1427AE28A600ECF058 /* WordGroupList */,
@@ -225,6 +230,7 @@
 				CC15ACDF27AE21C900ECF058 /* Assets.xcassets */,
 				CC15ACE627AE21C900ECF058 /* Flipit.xcdatamodeld */,
 				CC15ACE127AE21C900ECF058 /* Preview Content */,
+				CC111A5627CA3E8200776ADA /* LaunchScreen.storyboard */,
 			);
 			path = Flipit;
 			sourceTree = "<group>";
@@ -329,6 +335,14 @@
 				CC15AD4027AEA62B00ECF058 /* Montserrat-ExtraBoldItalic.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		CC9B5F8227C891C5009CCC7A /* onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				CC9B5F8327C891DD009CCC7A /* onboardingView.swift */,
+			);
+			path = onboarding;
 			sourceTree = "<group>";
 		};
 		CCD2B48F27C36F1700D43ECC /* SettingsView */ = {
@@ -461,6 +475,7 @@
 				CC15AD5327AEA62B00ECF058 /* Montserrat-Thin.ttf in Resources */,
 				CC15AD4D27AEA62B00ECF058 /* Montserrat-ThinItalic.ttf in Resources */,
 				CC15ACE327AE21C900ECF058 /* Preview Assets.xcassets in Resources */,
+				CC111A5727CA3E8200776ADA /* LaunchScreen.storyboard in Resources */,
 				CC15ACE027AE21C900ECF058 /* Assets.xcassets in Resources */,
 				CC87D25127C4AC3400132AC2 /* Localizable.strings in Resources */,
 				CC15AD4427AEA62B00ECF058 /* Montserrat-Medium.ttf in Resources */,
@@ -548,6 +563,7 @@
 				CC254E1A27B16A3E001FBD91 /* UIScreen+ScreenSize.swift in Sources */,
 				CC15ACE827AE21C900ECF058 /* Flipit.xcdatamodeld in Sources */,
 				CC15AD2927AE4D5F00ECF058 /* WordListViewModel.swift in Sources */,
+				CC9B5F8427C891DD009CCC7A /* onboardingView.swift in Sources */,
 				CCF5F54A27BE303900298E8A /* TextField+SpecificLanguageTextField.swift in Sources */,
 				CC15AD1027AE241C00ECF058 /* WordModel.swift in Sources */,
 				CCF5F54827BB7E4D00298E8A /* Components.swift in Sources */,
@@ -733,6 +749,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -766,6 +783,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarHidden = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

@@ -5,6 +5,12 @@
 "%lld words" = "%lld 단어";
 
 /* No comment provided by engineer. */
+"Add new notebook" = "단어장 추가";
+
+/* No comment provided by engineer. */
+"Add word" = "단어 추가";
+
+/* No comment provided by engineer. */
 "Delete" = "삭제";
 
 /* No comment provided by engineer. */
@@ -23,7 +29,10 @@
 "Edit Notebook" = "단어장 편집";
 
 /* No comment provided by engineer. */
-"Language" = "언어";
+"Mark Memorized" = "외운 단어";
+
+/* No comment provided by engineer. */
+"Memorized words" = "외운 단어";
 
 /* No comment provided by engineer. */
 "Memorized Words" = "외운 단어";
@@ -44,8 +53,26 @@
 "notebookName" = "단어장 이름";
 
 /* No comment provided by engineer. */
+"Pull down the list to add a new word." = "단어 리스트를 당겨 새 단어를 추가할 수 있습니다.";
+
+/* No comment provided by engineer. */
 "Pull to add new word" = "당겨서 새 단어 추가";
 
 /* No comment provided by engineer. */
 "Settings" = "설정";
+
+/* No comment provided by engineer. */
+"Start" = "시작";
+
+/* No comment provided by engineer. */
+"Swipe left to mark unmemorized, and swipe right to delete." = "왼쪽으로 밀어 외우지 않은 단어로 표시하며, 오른쪽으로 밀어 삭제할 수 있습니다.";
+
+/* No comment provided by engineer. */
+"Swipe the word left to mark memorized." = "단어를 왼쪽으로 밀어 외운 단어로 보낼 수 있습니다.";
+
+/* No comment provided by engineer. */
+"tap + button to add a new notebook." = "+ 버튼을 눌러 새 단어장을 추가할 수 있습니다.";
+
+/* No comment provided by engineer. */
+"You can check the memorized words." = "외운 단어를 모아 볼 수 있습니다.";
 

@@ -130,7 +130,7 @@ extension WordGroupListView {
     var wordGroupListHeader: some View {
         VStack {
             HStack {
-                Image("flipit_logo")
+                Image("flipit_logo_lighter")
                     .padding()
                 Spacer()
             }

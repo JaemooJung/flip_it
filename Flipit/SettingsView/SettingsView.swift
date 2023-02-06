@@ -71,14 +71,13 @@ extension SettingsView {
     
     private var settingsViewList: some View {
         List {
-//            Section {
-//                Text("English")
-//                Text("한국어")
-//            } header: {
-//                Text("Language").font(.custom("Montserrat-Light", size: 16))
-//            }
-//            .listRowBackground(Color.f_navy)
-//            .listRowSeparatorTint(.f_orange)
+            Section {
+                Link("Change Language", destination: URL(string: UIApplication.openSettingsURLString)!)
+            } header: {
+                Text("Language").font(.custom("Montserrat-Light", size: 16))
+            }
+            .listRowBackground(Color.f_navy)
+            .listRowSeparatorTint(.f_orange)
             
             Section {
                 HStack {
